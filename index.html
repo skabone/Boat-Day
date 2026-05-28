@@ -727,12 +727,18 @@
     const wakeIcon = L.divIcon({
       html: '<div class="wake-easter" aria-hidden="true"><span></span></div>',
       className: "",
-      iconSize: [42, 24],
-      iconAnchor: [21, 12]
+      iconSize: [50, 30],
+      iconAnchor: [25, 15]
     });
-    L.marker([47.6063, -122.2564], { icon: wakeIcon, zIndexOffset: 450 })
-      .addTo(map)
-      .bindPopup("<strong>Possible link-up with Mintay's friend</strong><div class=\"popup-desc\">Possible link-up with Mintay's friend near Leschi. Keep phones handy.</div>");
+    const wakePopup = "<strong>Possible link-up with Mintay's friend</strong><div class=\"popup-desc\">Keep phones handy.</div>";
+    [
+      [47.6063, -122.2564],
+      [47.51560939480842, -122.22139443553375]
+    ].forEach(coords => {
+      L.marker(coords, { icon: wakeIcon, zIndexOffset: 450 })
+        .addTo(map)
+        .bindPopup(wakePopup);
+    });
   }
 
   async function init() {
