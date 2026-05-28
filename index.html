@@ -470,12 +470,12 @@
       zoom: 18
     },
     {
-      id: "steview",
-      featureId: "steview-meet-up",
+      id: "possible-link-up",
+      featureId: "possible-link-up",
       className: "meet",
       time: "2:30 - 3:30 PM",
-      title: "Stevie link-up",
-      desc: "Stevie links up on the water near Leschi. Keep phones handy.",
+      title: "Possible link-up with Mintay's friend",
+      desc: "Possible link-up with Mintay's friend near Leschi. Keep phones handy.",
       tag: "Meet-up",
       tagClass: "tag-meet",
       focus: "bounds"
@@ -600,7 +600,7 @@
 
     if (id === "walking-land-stop") style.dashArray = "2,5";
     if (id === "mercer-lake-loop") style.dashArray = "10,8";
-    if (id === "steview-meet-up") style.dashArray = "5,6";
+    if (id === "possible-link-up") style.dashArray = "5,6";
     return style;
   }
 
@@ -732,7 +732,7 @@
     });
     L.marker([47.6063, -122.2564], { icon: wakeIcon, zIndexOffset: 450 })
       .addTo(map)
-      .bindPopup("<strong>Stevie link-up</strong><div class=\"popup-desc\">Stevie links up on the water near Leschi. Keep phones handy.</div>");
+      .bindPopup("<strong>Possible link-up with Mintay's friend</strong><div class=\"popup-desc\">Possible link-up with Mintay's friend near Leschi. Keep phones handy.</div>");
   }
 
   async function init() {

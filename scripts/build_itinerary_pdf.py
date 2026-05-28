@@ -242,9 +242,9 @@ def draw_page_two(c):
     draw_text(c, "Near Leschi, pause for a quick toast: one favorite memory, one future wish, and one official doctor-behavior compliment.", M + 16, 169, 216, "Helvetica", 10.2, 13.5, MUTED)
 
     rounded(c, W - M - 250, 112, 250, 120, colors.white)
-    draw_title(c, "Stevie Link-Up", W - M - 234, 198, 210, 21)
+    draw_title(c, "Possible Link-Up", W - M - 234, 198, 210, 21)
     draw_wake(c, W - M - 90, 196, 0.62, 0.72)
-    draw_text(c, "Stevie links up on the water near Leschi. Keep phones handy and stay reachable.", W - M - 234, 169, 216, "Helvetica", 10.2, 13.5, MUTED)
+    draw_text(c, "Possible link-up with Mintay's friend near Leschi. Keep phones handy and stay reachable.", W - M - 234, 169, 216, "Helvetica", 10.2, 13.5, MUTED)
     footer(c, 2)
 
 
@@ -261,7 +261,7 @@ def draw_itinerary_page(c):
         ("10:45 AM - 1:45 PM", "Outbound scenic ride", "Relaxed water-only route toward Lake Washington and Leschi, with slow/no-wake areas baked into timing."),
         ("1:45 PM", "Dock near BluWater Bistro / Leschi", "Main mid-day stop. Keep bags tidy, phones close, and the group coordinated around the dock area."),
         ("1:50 - 3:00 PM", "Starbucks walk and meeting window", "Quick walk across Lakeside Ave for the meeting, then back to the dock. This is the only land segment."),
-        ("2:30 - 3:30 PM", "Stevie link-up", "Stevie links up on the water near Leschi. Keep phones handy."),
+        ("2:30 - 3:30 PM", "Possible link-up with Mintay's friend", "Possible link-up near Leschi. Keep phones handy."),
         ("3:30 - 7:00 PM", "Lake Washington celebration hangout", "Main party block: cruise, snack, take photos, toast the doctors, and float only if conditions and captain are comfortable."),
         ("7:30 - 8:30 PM", "Inbound run to Fishermen's Terminal", "Return via Union Bay, Montlake Cut, Lake Union, Fremont Cut, Ship Canal, and Salmon Bay."),
         ("8:30 PM", "Boat returned", "Unload personal items, collect trash, thank the captain, and leave the boat clean."),
@@ -360,7 +360,7 @@ def draw_fun_page(c):
 
     rounded(c, M, 96, W - 2 * M, 192, colors.white)
     draw_title(c, "Group Text Copy", M + 16, 254, 260, 22)
-    body = "Anchors Aweigh: A Lake Washington Sendoff for Drs. Hana & Ruth\n\nBoat day is Thursday, May 28. Captain Mintay has the live route map, itinerary, packing list, weather snapshot, Leschi restock links, and PDF here:\n" + ITINERARY_URL + "\n\nBring sunscreen, sunglasses, a light hoodie, water, electrolytes, red Solo cups, ice, seltzers, tequila/mixers, and light snacks. Keep phones charged for photos and Stevie's Leschi link-up."
+    body = "Anchors Aweigh: A Lake Washington Sendoff for Drs. Hana & Ruth\n\nBoat day is Thursday, May 28. Captain Mintay has the live route map, itinerary, packing list, weather snapshot, Leschi restock links, and PDF here:\n" + ITINERARY_URL + "\n\nBring sunscreen, sunglasses, a light hoodie, water, electrolytes, red Solo cups, ice, seltzers, tequila/mixers, and light snacks. Keep phones charged for photos and a possible Leschi link-up."
     draw_text(c, body, M + 16, 222, W - 2 * M - 32, "Helvetica", 9.5, 12.2, MUTED)
     footer(c, 6)
 

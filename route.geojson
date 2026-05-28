@@ -75,15 +75,15 @@
         ]
       },
       "properties": {
-        "id": "steview-meet-up",
-        "name": "Stevie link-up - 2:30pm to 3:30pm",
+        "id": "possible-link-up",
+        "name": "Possible link-up with Mintay's friend - 2:30pm to 3:30pm",
         "color": "Purple",
         "stroke": "#8e44ad",
         "stroke-width": 4,
         "stroke-opacity": 0.95,
-        "mode": "Water link-up",
+        "mode": "Meet-up",
         "time": "2:30pm-3:30pm",
-        "description": "Stevie links up on the water near Leschi. Keep phones handy."
+        "description": "Possible link-up with Mintay's friend near Leschi. Keep phones handy."
       }
     },
     {
