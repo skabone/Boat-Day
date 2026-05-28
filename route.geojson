@@ -1,0 +1,235 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-122.3795, 47.6578],
+          [-122.37, 47.6573],
+          [-122.356, 47.6516],
+          [-122.3480943, 47.648827],
+          [-122.3403976, 47.6437883],
+          [-122.3338872, 47.6403982],
+          [-122.324047, 47.6524021],
+          [-122.3213058, 47.6531596],
+          [-122.3185646, 47.6524021],
+          [-122.3149448, 47.6487799],
+          [-122.3092649, 47.6473542],
+          [-122.304626, 47.6471885],
+          [-122.297527, 47.6474016],
+          [-122.293, 47.6485],
+          [-122.2624946, 47.6445028],
+          [-122.2761956, 47.6045187],
+          [-122.2837285, 47.6015424]
+        ]
+      },
+      "properties": {
+        "id": "outbound-water",
+        "name": "Outbound water route - 10:45am to 1:45pm",
+        "color": "Blue",
+        "stroke": "#0066cc",
+        "stroke-width": 5,
+        "stroke-opacity": 1,
+        "mode": "Boat / water",
+        "time": "10:45am-1:45pm",
+        "description": "Fishermen's Terminal in Ballard to the docks by BluWater Bistro in Leschi. Approximate water-only routing via Salmon Bay, Fremont Cut, Lake Union, Portage Bay, Montlake Cut, Union Bay, and Lake Washington."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-122.2837257, 47.6015405],
+          [-122.2844759, 47.6018631],
+          [-122.2853196, 47.6020655],
+          [-122.2846854, 47.6017715],
+          [-122.283737, 47.6015443]
+        ]
+      },
+      "properties": {
+        "id": "walking-land-stop",
+        "name": "Walking land stop - 1:50pm to 1:55pm and 2:55pm to 3:00pm",
+        "color": "Orange",
+        "stroke": "#ff9900",
+        "stroke-width": 5,
+        "stroke-opacity": 1,
+        "mode": "Walk / land",
+        "time": "1:50pm-1:55pm; 2:55pm-3:00pm",
+        "description": "Quick on-land walk from the Leschi dock area to Starbucks across the street, then back to the dock. This is the only land segment."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-122.2676275, 47.6142425],
+          [-122.2420309, 47.6126008],
+          [-122.2454925, 47.600661],
+          [-122.2574413, 47.5990259],
+          [-122.2665083, 47.5979358],
+          [-122.2676275, 47.6142425]
+        ]
+      },
+      "properties": {
+        "id": "steview-meet-up",
+        "name": "Steview meet-up - 2:30pm to 3:30pm",
+        "color": "Purple",
+        "stroke": "#8e44ad",
+        "stroke-width": 4,
+        "stroke-opacity": 0.95,
+        "mode": "Dock/near-dock overlap, then boat",
+        "time": "2:30pm-3:30pm",
+        "description": "Meeting window with Steview. Because the schedule has you walking back to the dock at 2:55-3:00pm, the 2:30-3:00 portion is treated as dock/near-dock overlap, and 3:00-3:30 as a short Lake Washington boat segment."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-122.2542311, 47.607571],
+          [-122.2231147, 47.6005256],
+          [-122.20856, 47.5872846],
+          [-122.205609, 47.5819141],
+          [-122.1986344, 47.5781823],
+          [-122.1956057, 47.5656549],
+          [-122.2055, 47.548],
+          [-122.2095514, 47.5297239],
+          [-122.226, 47.518],
+          [-122.244, 47.527],
+          [-122.251869, 47.5370813],
+          [-122.2389184, 47.5557951],
+          [-122.256, 47.57],
+          [-122.2752318, 47.5884518],
+          [-122.2717763, 47.591088],
+          [-122.2682641, 47.5936095],
+          [-122.2652126, 47.5963885],
+          [-122.2602464, 47.594568],
+          [-122.2557925, 47.5968996],
+          [-122.2460083, 47.6001536],
+          [-122.2188161, 47.5972281],
+          [-122.2187093, 47.6051128],
+          [-122.2197923, 47.6086896],
+          [-122.2251509, 47.605916],
+          [-122.2306185, 47.6087631],
+          [-122.2347328, 47.6120115],
+          [-122.2530053, 47.6097966],
+          [-122.2837371, 47.6015436]
+        ]
+      },
+      "properties": {
+        "id": "mercer-lake-loop",
+        "name": "Hanging out / Mercer Island + Lake Washington loop - 3:30pm to 7:00pm",
+        "color": "Green",
+        "stroke": "#2e8b57",
+        "stroke-width": 5,
+        "stroke-opacity": 0.95,
+        "mode": "Boat / water",
+        "time": "3:30pm-7:00pm",
+        "description": "Approximate water-only loop around Mercer Island, then open-water looping on Lake Washington, ending near the center of the lake for the 7:30pm inbound departure."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-122.2541356, 47.6076744],
+          [-122.2670637, 47.6229461],
+          [-122.2676659, 47.6315371],
+          [-122.2665843, 47.6422324],
+          [-122.293, 47.6485],
+          [-122.2978784, 47.6469281],
+          [-122.3046963, 47.6473779],
+          [-122.3090892, 47.6475673],
+          [-122.3158121, 47.6497257],
+          [-122.3193377, 47.6526388],
+          [-122.3226021, 47.6531796],
+          [-122.3273153, 47.6502714],
+          [-122.3298433, 47.6457233],
+          [-122.334428, 47.6418671],
+          [-122.3438563, 47.6445957],
+          [-122.3565595, 47.6505177],
+          [-122.363522, 47.6540246],
+          [-122.37, 47.6573],
+          [-122.3795, 47.6578]
+        ]
+      },
+      "properties": {
+        "id": "inbound-water",
+        "name": "Inbound water route - 7:30pm to 8:30pm",
+        "color": "Red",
+        "stroke": "#cc0000",
+        "stroke-width": 5,
+        "stroke-opacity": 1,
+        "mode": "Boat / water",
+        "time": "7:30pm-8:30pm",
+        "description": "Center of Lake Washington back to Fishermen's Terminal in Ballard via Union Bay, Montlake Cut, Portage Bay, Lake Union, Fremont Cut, Ship Canal, and Salmon Bay."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.3795, 47.6578]
+      },
+      "properties": {
+        "id": "fishermens-terminal",
+        "name": "Start/End - Fishermen's Terminal, Ballard",
+        "marker-label": "FT",
+        "marker-class": "blue",
+        "marker-color": "#ffffff",
+        "description": "Start 10:45am; return 8:30pm."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.2837398, 47.6015443]
+      },
+      "properties": {
+        "id": "leschi-dock",
+        "name": "1:45pm - BluWater Bistro / Leschi docks",
+        "marker-label": "BL",
+        "marker-class": "blue",
+        "marker-color": "#ffffff",
+        "description": "Arrive by boat exactly at 1:45pm per plan."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.2853278, 47.602069]
+      },
+      "properties": {
+        "id": "starbucks",
+        "name": "Starbucks land stop",
+        "marker-label": "SB",
+        "marker-class": "gold",
+        "marker-color": "#ffffff",
+        "description": "Walk 1:50-1:55pm; return 2:55-3:00pm."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.2560081, 47.6065096]
+      },
+      "properties": {
+        "id": "lake-center",
+        "name": "Center of Lake Washington",
+        "marker-label": "LW",
+        "marker-class": "green",
+        "marker-color": "#ffffff",
+        "description": "Depart toward Fishermen's Terminal at 7:30pm."
+      }
+    }
+  ]
+}
