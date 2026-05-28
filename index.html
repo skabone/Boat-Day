@@ -312,10 +312,10 @@
   }
   .wake-easter {
     position: relative;
-    width: 42px;
-    height: 24px;
-    opacity: 0.76;
-    filter: drop-shadow(0 3px 6px rgba(8, 20, 35, 0.38));
+    width: 50px;
+    height: 30px;
+    opacity: 0.96;
+    filter: drop-shadow(0 4px 7px rgba(82, 28, 106, 0.48));
   }
   .wake-easter::before {
     content: "";
@@ -325,7 +325,8 @@
     width: 18px;
     height: 9px;
     border-radius: 8px 3px 8px 3px;
-    background: #f8fafc;
+    background: var(--purple);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9);
     transform: skewX(-18deg) rotate(-7deg);
   }
   .wake-easter::after,
@@ -336,7 +337,8 @@
     left: 2px;
     height: 2px;
     border-radius: 999px;
-    background: rgba(248, 250, 252, 0.9);
+    background: rgba(142, 68, 173, 0.96);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.78);
   }
   .wake-easter::after {
     top: 7px;
@@ -400,7 +402,7 @@
       <div class="legend-item"><div class="legend-swatch" style="background:#0066cc"></div>Outbound</div>
       <div class="legend-item"><div class="legend-swatch" style="background:#ff9900"></div>Walk</div>
       <div class="legend-item"><div class="legend-swatch" style="background:#2e8b57"></div>Cruise</div>
-      <div class="legend-item"><div class="legend-swatch" style="background:#8e44ad"></div>Ripple</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#8e44ad"></div>Meet-up</div>
       <div class="legend-item"><div class="legend-swatch" style="background:#cc0000"></div>Return</div>
     </div>
   </div>
@@ -472,9 +474,9 @@
       featureId: "steview-meet-up",
       className: "meet",
       time: "2:30 - 3:30 PM",
-      title: "Stevie's lake-window",
-      desc: "A quick water-side cameo may happen around Leschi. Keep phones handy and one eye on the wake.",
-      tag: "Ripple",
+      title: "Stevie link-up",
+      desc: "Stevie links up on the water near Leschi. Keep phones handy.",
+      tag: "Meet-up",
       tagClass: "tag-meet",
       focus: "bounds"
     },
@@ -730,7 +732,7 @@
     });
     L.marker([47.6063, -122.2564], { icon: wakeIcon, zIndexOffset: 450 })
       .addTo(map)
-      .bindPopup("<strong>A little lake ripple</strong><div class=\"popup-desc\">No spoilers. Just keep an eye on the water during the Leschi window.</div>");
+      .bindPopup("<strong>Stevie link-up</strong><div class=\"popup-desc\">Stevie links up on the water near Leschi. Keep phones handy.</div>");
   }
 
   async function init() {

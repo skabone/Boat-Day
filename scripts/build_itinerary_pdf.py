@@ -38,6 +38,7 @@ PAPER = colors.HexColor("#fff9ef")
 SUN = colors.HexColor("#f7c85c")
 CORAL = colors.HexColor("#ef7c68")
 GREEN = colors.HexColor("#2e8b57")
+PURPLE = colors.HexColor("#8e44ad")
 MUTED = colors.HexColor("#64748b")
 LINE = colors.Color(0.07, 0.12, 0.18, alpha=0.13)
 
@@ -125,6 +126,19 @@ def draw_chip(c, text, x, y, fill=FOAM, color=BLUE):
     c.drawString(x + 9, y - 1, text)
     c.restoreState()
     return x + width + 7
+
+
+def draw_wake(c, x, y, scale=1, alpha=0.58):
+    c.saveState()
+    c.setLineCap(1)
+    c.setLineWidth(2.4 * scale)
+    c.setStrokeColor(colors.Color(0.56, 0.27, 0.68, alpha=alpha))
+    c.setFillColor(colors.Color(0.56, 0.27, 0.68, alpha=min(alpha + 0.16, 1)))
+    c.roundRect(x + 30 * scale, y + 10 * scale, 20 * scale, 10 * scale, 5 * scale, fill=1, stroke=0)
+    c.line(x, y + 17 * scale, x + 23 * scale, y + 14 * scale)
+    c.line(x + 3 * scale, y + 9 * scale, x + 32 * scale, y + 7 * scale)
+    c.line(x + 6 * scale, y + 1 * scale, x + 22 * scale, y + 3 * scale)
+    c.restoreState()
 
 
 def draw_qr(c, url, x, y, size):
@@ -228,8 +242,9 @@ def draw_page_two(c):
     draw_text(c, "Near Leschi, pause for a quick toast: one favorite memory, one future wish, and one official doctor-behavior compliment.", M + 16, 169, 216, "Helvetica", 10.2, 13.5, MUTED)
 
     rounded(c, W - M - 250, 112, 250, 120, colors.white)
-    draw_title(c, "Tiny Lake Hint", W - M - 234, 198, 210, 21)
-    draw_text(c, "During the Leschi window, a small ripple may appear in the plan. No spoilers. Stay reachable and look alive.", W - M - 234, 169, 216, "Helvetica", 10.2, 13.5, MUTED)
+    draw_title(c, "Stevie Link-Up", W - M - 234, 198, 210, 21)
+    draw_wake(c, W - M - 90, 196, 0.62, 0.72)
+    draw_text(c, "Stevie links up on the water near Leschi. Keep phones handy and stay reachable.", W - M - 234, 169, 216, "Helvetica", 10.2, 13.5, MUTED)
     footer(c, 2)
 
 
@@ -246,7 +261,7 @@ def draw_itinerary_page(c):
         ("10:45 AM - 1:45 PM", "Outbound scenic ride", "Relaxed water-only route toward Lake Washington and Leschi, with slow/no-wake areas baked into timing."),
         ("1:45 PM", "Dock near BluWater Bistro / Leschi", "Main mid-day stop. Keep bags tidy, phones close, and the group coordinated around the dock area."),
         ("1:50 - 3:00 PM", "Starbucks walk and meeting window", "Quick walk across Lakeside Ave for the meeting, then back to the dock. This is the only land segment."),
-        ("2:30 - 3:30 PM", "Stevie's lake-window", "Keep this flexible and coy. A small water-side cameo may line up near Leschi, so keep one eye on the wake and one eye on the group chat."),
+        ("2:30 - 3:30 PM", "Stevie link-up", "Stevie links up on the water near Leschi. Keep phones handy."),
         ("3:30 - 7:00 PM", "Lake Washington celebration hangout", "Main party block: cruise, snack, take photos, toast the doctors, and float only if conditions and captain are comfortable."),
         ("7:30 - 8:30 PM", "Inbound run to Fishermen's Terminal", "Return via Union Bay, Montlake Cut, Lake Union, Fremont Cut, Ship Canal, and Salmon Bay."),
         ("8:30 PM", "Boat returned", "Unload personal items, collect trash, thank the captain, and leave the boat clean."),
@@ -325,6 +340,7 @@ def draw_packing_page(c):
 def draw_fun_page(c):
     c.setFillColor(DEEP)
     c.rect(0, 0, W, H, fill=1, stroke=0)
+    draw_wake(c, W - M - 116, H - 102, 1.35, 0.42)
     y = H - 60
     draw_label(c, "Tiny prompts, big memories", M, y, AQUA)
     y -= 30
@@ -344,7 +360,7 @@ def draw_fun_page(c):
 
     rounded(c, M, 96, W - 2 * M, 192, colors.white)
     draw_title(c, "Group Text Copy", M + 16, 254, 260, 22)
-    body = "Anchors Aweigh: A Lake Washington Sendoff for Drs. Hana & Ruth\n\nBoat day is Thursday, May 28. Captain Mintay has the live route map, itinerary, packing list, weather snapshot, Leschi restock links, and PDF here:\n" + ITINERARY_URL + "\n\nBring sunscreen, sunglasses, a light hoodie, water, electrolytes, red Solo cups, ice, seltzers, tequila/mixers, and light snacks. Keep phones charged for photos and tiny lake surprises."
+    body = "Anchors Aweigh: A Lake Washington Sendoff for Drs. Hana & Ruth\n\nBoat day is Thursday, May 28. Captain Mintay has the live route map, itinerary, packing list, weather snapshot, Leschi restock links, and PDF here:\n" + ITINERARY_URL + "\n\nBring sunscreen, sunglasses, a light hoodie, water, electrolytes, red Solo cups, ice, seltzers, tequila/mixers, and light snacks. Keep phones charged for photos and Stevie's Leschi link-up."
     draw_text(c, body, M + 16, 222, W - 2 * M - 32, "Helvetica", 9.5, 12.2, MUTED)
     footer(c, 6)
 
