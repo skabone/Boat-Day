@@ -1,13 +1,17 @@
-# Boating Day Map
+# Anchors Aweigh Boat Day
 
-Static GitHub Pages map for the May 28, 2026 boating itinerary.
+Static GitHub Pages package for the May 28, 2026 boating sendoff for Drs. Hana and Ruth.
 
 Live site: https://skabone.github.io/Boat-Day/
 
 ## Files
 
 - `index.html` is the shareable map page.
+- `itinerary.html` is the designed itinerary, packing list, weather snapshot, and group text page.
+- `itinerary.pdf` is the printable/shareable PDF.
 - `route.geojson` is the route and marker source of truth.
+- `assets/` contains the web/PDF images.
+- `scripts/build_itinerary_pdf.py` regenerates the PDF from local assets.
 
 ## Local Preview
 

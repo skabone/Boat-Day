@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anchors Aweigh - Drs. Hana & Ruth</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #102033;
+    --deep: #071625;
+    --blue: #0b77bd;
+    --aqua: #42c4e8;
+    --foam: #eff9fb;
+    --sun: #f7c85c;
+    --coral: #ef7c68;
+    --green: #2e8b57;
+    --paper: #fff9ef;
+    --muted: #64748b;
+    --line: rgba(16, 32, 51, 0.12);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--foam);
+    color: var(--ink);
+    font-family: "DM Sans", Arial, sans-serif;
+    line-height: 1.5;
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    min-height: 66px;
+    padding: 12px clamp(18px, 4vw, 52px);
+    background: rgba(255, 249, 239, 0.92);
+    border-bottom: 1px solid rgba(16, 32, 51, 0.1);
+    backdrop-filter: blur(16px);
+  }
+  .brand {
+    color: var(--deep);
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: 22px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+  .nav a,
+  .copy-btn {
+    min-height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(16, 32, 51, 0.13);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--deep);
+    font: 800 12px/1 "DM Sans", Arial, sans-serif;
+    letter-spacing: 0;
+    padding: 9px 12px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .nav a.primary,
+  .copy-btn {
+    border-color: var(--blue);
+    background: var(--blue);
+    color: #fff;
+  }
+
+  .hero {
+    position: relative;
+    min-height: max(620px, calc(100svh - 112px));
+    display: grid;
+    align-items: end;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background: url("assets/hero-wide.jpg") center 34% / cover no-repeat;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(7, 22, 37, 0.04) 20%, rgba(7, 22, 37, 0.48) 65%, rgba(7, 22, 37, 0.88) 100%);
+  }
+  .hero-inner {
+    width: min(1180px, calc(100% - 36px));
+    margin: 0 auto;
+    padding: 44px 0 34px;
+    color: #fff;
+  }
+  .eyebrow {
+    width: fit-content;
+    margin-bottom: 12px;
+    padding: 7px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    border-radius: 999px;
+    background: rgba(7, 22, 37, 0.38);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+  }
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+    color: inherit;
+    font-family: "DM Serif Display", Georgia, serif;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+  h1 {
+    max-width: 900px;
+    font-size: 72px;
+    line-height: 1.02;
+    text-wrap: balance;
+    word-spacing: 0.04em;
+  }
+  .hero-copy {
+    max-width: 650px;
+    margin: 16px 0 0;
+    color: rgba(255, 255, 255, 0.87);
+    font-size: 20px;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+  }
+  .hero-actions a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 12px 16px;
+    background: #fff;
+    color: var(--deep);
+    font-weight: 900;
+    text-decoration: none;
+  }
+  .hero-actions a.secondary {
+    border: 1px solid rgba(255, 255, 255, 0.48);
+    background: rgba(7, 22, 37, 0.32);
+    color: #fff;
+  }
+  .hero-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 26px;
+  }
+  .mini-stat {
+    min-height: 82px;
+    padding: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 8px;
+    background: rgba(7, 22, 37, 0.56);
+  }
+  .mini-stat span {
+    display: block;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.45px;
+    text-transform: uppercase;
+  }
+  .mini-stat strong {
+    display: block;
+    margin-top: 4px;
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.18;
+  }
+
+  main {
+    overflow: hidden;
+  }
+  .section {
+    padding: clamp(42px, 7vw, 82px) clamp(18px, 4vw, 52px);
+  }
+  .section.alt { background: var(--paper); }
+  .section.deep {
+    position: relative;
+    background: var(--deep);
+    color: #fff;
+  }
+  .section-inner {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+  }
+  .section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 22px;
+    margin-bottom: 24px;
+  }
+  h2 {
+    font-size: 50px;
+    line-height: 1;
+  }
+  .section-lede {
+    max-width: 620px;
+    margin: 8px 0 0;
+    color: var(--muted);
+    font-size: 16px;
+  }
+  .deep .section-lede,
+  .deep .card p,
+  .deep .small { color: rgba(255, 255, 255, 0.7); }
+
+  .grid {
+    display: grid;
+    gap: 18px;
+  }
+  .grid.two { grid-template-columns: 1.05fr 0.95fr; }
+  .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .card {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 16px 50px rgba(16, 32, 51, 0.08);
+  }
+  .deep .card {
+    border-color: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: none;
+  }
+  .card h3 {
+    color: var(--deep);
+    font-size: 25px;
+    line-height: 1.08;
+  }
+  .deep .card h3 { color: #fff; }
+  .card p {
+    margin: 8px 0 0;
+    color: var(--muted);
+  }
+  .small {
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    border-radius: 999px;
+    padding: 7px 10px;
+    background: rgba(11, 119, 189, 0.09);
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+  .doctors-photo {
+    overflow: hidden;
+    padding: 0;
+  }
+  .doctors-photo img {
+    width: 100%;
+    height: 100%;
+    min-height: 460px;
+    object-fit: cover;
+  }
+  .caption {
+    padding: 16px 18px 18px;
+    background: #fff;
+  }
+
+  .timeline {
+    display: grid;
+    gap: 12px;
+  }
+  .time-row {
+    display: grid;
+    grid-template-columns: 132px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+  }
+  .time {
+    color: var(--blue);
+    font-weight: 900;
+    line-height: 1.25;
+  }
+  .time-row h3 {
+    color: var(--deep);
+    font: 800 18px/1.2 "DM Sans", Arial, sans-serif;
+  }
+  .time-row p { margin: 6px 0 0; color: var(--muted); }
+  .soft-note {
+    border-left: 4px solid var(--coral);
+    padding: 14px 16px;
+    border-radius: 8px;
+    background: rgba(239, 124, 104, 0.1);
+    color: #7f2f25;
+    font-weight: 700;
+  }
+
+  .weather-card {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 18px;
+    align-items: stretch;
+  }
+  .weather-big {
+    display: grid;
+    place-items: center;
+    min-height: 230px;
+    border-radius: 8px;
+    background: linear-gradient(145deg, #047fc7 0%, #55d0ef 62%, #f8d77b 100%);
+    color: #fff;
+    text-align: center;
+  }
+  .weather-big strong {
+    display: block;
+    font-size: 84px;
+    line-height: 1;
+  }
+  .weather-big span {
+    display: block;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .source-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .source-list a,
+  .resource-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    border: 1px solid rgba(11, 119, 189, 0.18);
+    border-radius: 8px;
+    padding: 8px 10px;
+    background: rgba(11, 119, 189, 0.07);
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 900;
+    text-decoration: none;
+  }
+
+  .checklist {
+    display: grid;
+    gap: 10px;
+    margin: 14px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .checklist li {
+    min-height: 38px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(16, 32, 51, 0.08);
+  }
+  .checklist li::before {
+    content: "";
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    border: 2px solid var(--blue);
+    border-radius: 5px;
+    background: #fff;
+  }
+
+  .resources {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .resource {
+    min-height: 136px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    padding: 16px;
+  }
+  .resource strong {
+    color: var(--deep);
+    font-size: 17px;
+    line-height: 1.15;
+  }
+  .resource span {
+    display: block;
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .copy-card textarea {
+    width: 100%;
+    min-height: 178px;
+    resize: vertical;
+    border: 1px solid rgba(16, 32, 51, 0.14);
+    border-radius: 8px;
+    padding: 14px;
+    background: #fff;
+    color: var(--ink);
+    font: 600 14px/1.55 "DM Sans", Arial, sans-serif;
+  }
+  .copy-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .wake-mark {
+    position: absolute;
+    right: clamp(20px, 8vw, 110px);
+    bottom: 42px;
+    width: 92px;
+    height: 46px;
+    opacity: 0.18;
+    transform: rotate(-8deg);
+  }
+  .wake-mark::before {
+    content: "";
+    position: absolute;
+    right: 8px;
+    top: 12px;
+    width: 38px;
+    height: 17px;
+    border-radius: 14px 5px 14px 5px;
+    background: #fff;
+    transform: skewX(-18deg);
+  }
+  .wake-mark::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 13px;
+    width: 58px;
+    height: 4px;
+    border-radius: 999px;
+    background: #fff;
+    box-shadow: 10px 13px 0 rgba(255,255,255,0.95), -2px 26px 0 rgba(255,255,255,0.95);
+  }
+
+  footer {
+    padding: 26px clamp(18px, 4vw, 52px);
+    background: #06111d;
+    color: rgba(255, 255, 255, 0.66);
+    font-size: 13px;
+  }
+  footer .section-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  footer a { color: #fff; font-weight: 800; text-decoration: none; }
+
+  @media (max-width: 920px) {
+    .topbar { align-items: flex-start; flex-direction: column; }
+    .nav { justify-content: flex-start; }
+    .grid.two,
+    .grid.three,
+    .grid.four,
+    .weather-card,
+    .resources {
+      grid-template-columns: 1fr;
+    }
+    .hero-strip { grid-template-columns: 1fr; }
+    .doctors-photo img { min-height: 360px; }
+    h1 { font-size: 58px; }
+    h2 { font-size: 42px; }
+  }
+
+  @media (max-width: 620px) {
+    .topbar { position: relative; }
+    .brand { white-space: normal; }
+    .nav a { flex: 1 1 calc(50% - 8px); }
+    .hero { min-height: 640px; }
+    .hero::before { background-image: url("assets/hero-portrait.jpg"); background-position: center top; }
+    .hero-inner { padding-bottom: 28px; }
+    .hero-actions a { flex: 1 1 100%; }
+    .time-row { grid-template-columns: 1fr; gap: 6px; }
+    .section-head { display: block; }
+    .copy-actions { align-items: flex-start; flex-direction: column; }
+    h1 { font-size: 38px; line-height: 1.06; }
+    h2 { font-size: 34px; }
+    .hero-copy { font-size: 17px; }
+    .weather-big strong { font-size: 66px; }
+    .hero-strip { display: none; }
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="itinerary.html">Anchors Aweigh</a>
+  <nav class="nav" aria-label="Boat day navigation">
+    <a href="index.html">Map</a>
+    <a href="#itinerary">Itinerary</a>
+    <a href="#packing">Packing</a>
+    <a href="#weather">Weather</a>
+    <a class="primary" href="itinerary.pdf">PDF</a>
+  </nav>
+</header>
+
+<section class="hero" aria-label="Boat day hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Thursday, May 28, 2026 - Lake Washington</div>
+    <h1>Anchors Aweigh: A Lake Washington Sendoff for Drs. Hana &amp; Ruth</h1>
+    <p class="hero-copy">A sunny Seattle boat day for celebrating two doctors, cruising the lake, and sending them off with the exact right amount of sparkle.</p>
+    <div class="hero-actions">
+      <a href="index.html">Open Live Route Map</a>
+      <a class="secondary" href="#group-text">Copy Group Text</a>
+      <a class="secondary" href="itinerary.pdf">Open PDF</a>
+    </div>
+    <div class="hero-strip" aria-label="People and timing">
+      <div class="mini-stat"><span>Boating Captain</span><strong>Mintay</strong></div>
+      <div class="mini-stat"><span>Doctors</span><strong>Hana and Ruth</strong></div>
+      <div class="mini-stat"><span>Main Window</span><strong>10:45 AM to 8:30 PM</strong></div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <section class="section alt" id="doctors">
+    <div class="section-inner grid two">
+      <article class="card">
+        <h2>Today's Doctors</h2>
+        <p class="section-lede">Hana and Ruth are the reason the boat is leaving the dock with this much ceremony. The assignment is simple: celebrate them well, keep the day easy, and get the group photos before anyone gets lake-hair too serious.</p>
+        <div class="pill-row">
+          <span class="pill">Captain: Mintay</span>
+          <span class="pill">Doctors: Hana + Ruth</span>
+          <span class="pill">Dress code: Boat cute</span>
+        </div>
+      </article>
+      <figure class="card doctors-photo">
+        <img src="assets/doctors-hana-ruth.jpg" alt="Hana and Ruth in graduation gowns">
+        <figcaption class="caption small">The guests of honor. Keep this energy on the boat.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="welcome">
+    <div class="section-inner grid three">
+      <article class="card">
+        <h3>Captain's Welcome</h3>
+        <p>Welcome aboard. Today is for sunshine, lake air, ridiculous photos, responsible drinks, and giving Drs. Hana and Ruth a sendoff that feels like Seattle showed up personally.</p>
+      </article>
+      <article class="card">
+        <h3>Toast Moment</h3>
+        <p>Before the big lake hangout, pause near Leschi for a quick toast: one favorite memory, one future wish, and one official "doctor behavior" compliment.</p>
+      </article>
+      <article class="card">
+        <h3>Little Lake Hint</h3>
+        <p>During the Leschi window, there may be a tiny extra ripple in the plan. No speeches needed. Just stay reachable, keep phones charged, and look alive.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section alt" id="itinerary">
+    <div class="section-inner">
+      <div class="section-head">
+        <div>
+          <h2>Itinerary</h2>
+          <p class="section-lede">Timing follows the live route map. Use the map if anything feels unclear on the water.</p>
+        </div>
+        <a class="resource-link" href="index.html">View clickable route map</a>
+      </div>
+      <div class="timeline">
+        <article class="time-row">
+          <div class="time">10:45 AM</div>
+          <div><h3>Depart Fishermen's Terminal</h3><p>Cast off from Ballard and head east through Salmon Bay, Fremont Cut, Lake Union, Portage Bay, and the Montlake Cut.</p></div>
+        </article>
+        <article class="time-row">
+          <div class="time">10:45 AM - 1:45 PM</div>
+          <div><h3>Outbound scenic ride</h3><p>Relaxed water-only route toward Lake Washington and Leschi, with slow/no-wake areas baked into the timing.</p></div>
+        </article>
+        <article class="time-row">
+          <div class="time">1:45 PM</div>
+          <div><h3>Dock near BluWater Bistro / Leschi</h3><p>Main mid-day stop. Keep bags tidy, phones close, and the group coordinated around the dock area.</p></div>
+        </article>
+        <article class="time-row">
+          <div class="time">1:50 - 3:00 PM</div>
+          <div><h3>Starbucks walk and meeting window</h3><p>Quick walk across Lakeside Ave for the meeting, then back to the dock. This is the only land segment.</p></div>
+        </article>
+        <article class="time-row">
+          <div class="time">2:30 - 3:30 PM</div>
+          <div><h3>Stevie's lake-window</h3><p>Keep this one flexible and coy. A small water-side cameo may line up near Leschi, so keep one eye on the wake and one eye on the group chat.</p></div>
+        </article>
+        <article class="time-row">
+          <div class="time">3:30 - 7:00 PM</div>
+          <div><h3>Lake Washington celebration hangout</h3><p>Main party block: cruise, snack, take photos, toast the doctors, float or swim only if conditions and captain are comfortable.</p></div>
+        </article>
+        <article class="time-row">
+          <div class="time">7:30 - 8:30 PM</div>
+          <div><h3>Inbound run to Fishermen's Terminal</h3><p>Point home from mid-lake and return via Union Bay, Montlake Cut, Lake Union, Fremont Cut, Ship Canal, and Salmon Bay.</p></div>
+        </article>
+        <article class="time-row">
+          <div class="time">8:30 PM</div>
+          <div><h3>Boat returned</h3><p>Unload personal items, collect trash, thank the captain, and leave the boat clean.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="weather">
+    <div class="section-inner">
+      <div class="section-head">
+        <div>
+          <h2>Weather Snapshot</h2>
+          <p class="section-lede">Last checked May 27, 2026, evening PDT. Forecast snapshot is static, so check again before boarding.</p>
+        </div>
+      </div>
+      <div class="card weather-card">
+        <div class="weather-big"><div><span>Thursday</span><strong>78</strong><span>Sunny high</span></div></div>
+        <div>
+          <h3>Warm, bright, and hoodie-at-night friendly.</h3>
+          <p>NWS forecast for Downtown Seattle calls for sunny conditions with a high near 78 and calm wind becoming northwest around 6 mph in the afternoon. The broader Seattle forecast says highs in the mid 70s to lower 80s, with light wind becoming northwest around 10 mph. Thursday night brings more clouds and a small late-night rain chance after the boat is back.</p>
+          <div class="pill-row">
+            <span class="pill">Sunscreen required</span>
+            <span class="pill">Sunglasses useful</span>
+            <span class="pill">Light jacket for return</span>
+          </div>
+          <div class="source-list">
+            <a href="https://forecast.weather.gov/MapClick.php?lat=47.6062095&lon=-122.3320708">NWS Seattle point forecast</a>
+            <a href="https://marine.weather.gov/MapClick.php?zoneid=WAZ315">NWS Seattle zone forecast</a>
+            <a href="https://www.timeanddate.com/weather/usa/seattle/ext">Timeanddate backup</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="packing">
+    <div class="section-inner">
+      <div class="section-head">
+        <div>
+          <h2>What To Bring</h2>
+          <p class="section-lede">Built for 8 to 12 people, party-core but practical. Keep snacks light because Leschi has food and restock options during the meeting window.</p>
+        </div>
+      </div>
+      <div class="grid three">
+        <article class="card">
+          <h3>Drinks + Ice</h3>
+          <ul class="checklist">
+            <li>4-6 bags ice</li>
+            <li>2-3 cases seltzers</li>
+            <li>1-2 bottles tequila</li>
+            <li>Mixers, limes, and sparkling water</li>
+            <li>Red Solo cups and a marker</li>
+            <li>Plenty of water bottles</li>
+            <li>Electrolytes or Liquid I.V.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Easy Food</h3>
+          <ul class="checklist">
+            <li>Chips, fruit, crackers, popcorn</li>
+            <li>Wraps, sliders, or sandwiches</li>
+            <li>Paper towels and napkins</li>
+            <li>Trash bags</li>
+            <li>Cooler space for drinks first</li>
+            <li>Light restock plan around Leschi</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Boat Comfort</h3>
+          <ul class="checklist">
+            <li>Sunscreen and extra sunscreen</li>
+            <li>Sunglasses, hats, towel</li>
+            <li>Swimsuit or splash-safe clothes</li>
+            <li>Light hoodie for the ride back</li>
+            <li>Phone charger or battery pack</li>
+            <li>Speaker and downloaded playlist</li>
+            <li>Dry bag or zipper bags for phones</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="restock">
+    <div class="section-inner">
+      <div class="section-head">
+        <div>
+          <h2>Leschi Food + Restock</h2>
+          <p class="section-lede">Good nearby options while the boat is waiting near BluWater. Check hours, availability, and status before relying on any single stop.</p>
+        </div>
+      </div>
+      <div class="resources">
+        <a class="resource" href="https://bluwaterbistro.com/"><strong>BluWater Bistro</strong><span>Dock-side anchor point, food, drinks, bathrooms nearby.</span></a>
+        <a class="resource" href="https://leschimarket.com/find-our-store/"><strong>Leschi Market</strong><span>Best nearby practical restock: ice, drinks, snacks.</span></a>
+        <a class="resource" href="https://www.pabloypablo.com/locations"><strong>Pablo y Pablo</strong><span>Nearby link for status check, tacos, and margarita dreams.</span></a>
+        <a class="resource" href="https://danielsbroiler.com/pages/locations-daniels-leschi"><strong>Daniel's Broiler</strong><span>Waterfront backup for food, drinks, or a polished bite.</span></a>
+        <a class="resource" href="https://www.starbucks.com/store-locator"><strong>Starbucks Leschi</strong><span>Meeting stop and caffeine reset across Lakeside Ave.</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section deep" id="fun">
+    <div class="wake-mark" aria-hidden="true"></div>
+    <div class="section-inner">
+      <div class="section-head">
+        <div>
+          <h2>Fun Assignments</h2>
+          <p class="section-lede">Tiny prompts so the day has a little ceremony without becoming a production.</p>
+        </div>
+      </div>
+      <div class="grid three">
+        <article class="card">
+          <h3>Photo Checklist</h3>
+          <ul class="checklist">
+            <li>Doctors in gowns</li>
+            <li>Captain + doctors</li>
+            <li>Dock arrival</li>
+            <li>Lake Washington group photo</li>
+            <li>Sunset return photo</li>
+            <li>Cheers photo with Seattle or Lake Washington behind it</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Boat Day Awards</h3>
+          <ul class="checklist">
+            <li>Best boat-day fit</li>
+            <li>MVP snack bringer</li>
+            <li>Playlist captain</li>
+            <li>Most likely to become a lake person</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Safety Reminders</h3>
+          <ul class="checklist">
+            <li>Boat operator stays sober</li>
+            <li>Use cans or plastic, not glass</li>
+            <li>Drink water throughout the day</li>
+            <li>Keep walking areas clear</li>
+            <li>Respect slow/no-wake zones and docks</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="group-text">
+    <div class="section-inner grid two">
+      <article class="card copy-card">
+        <h2>Group Text Copy</h2>
+        <p class="section-lede">Paste this in the thread so everyone has the live map, itinerary, packing list, weather, and PDF in one place.</p>
+        <textarea id="group-copy" readonly>Anchors Aweigh: A Lake Washington Sendoff for Drs. Hana & Ruth
+
+Boat day is Thursday, May 28. Captain Mintay has the live route map, itinerary, packing list, weather snapshot, Leschi restock links, and PDF here:
+https://skabone.github.io/Boat-Day/itinerary.html
+
+Live map:
+https://skabone.github.io/Boat-Day/
+
+Bring sunscreen, sunglasses, a light hoodie, water, electrolytes, red Solo cups, ice, seltzers, tequila/mixers, and light snacks. Main celebration block is Lake Washington in the afternoon. Keep phones charged for photos and tiny lake surprises.</textarea>
+        <div class="copy-actions">
+          <button class="copy-btn" type="button" id="copy-button">Copy Message</button>
+          <span class="small" id="copy-status">Ready for the group chat.</span>
+        </div>
+      </article>
+      <article class="card">
+        <h2>Share Links</h2>
+        <p class="section-lede">These are the public pages to use after publishing.</p>
+        <div class="pill-row">
+          <a class="resource-link" href="https://skabone.github.io/Boat-Day/">Live route map</a>
+          <a class="resource-link" href="https://skabone.github.io/Boat-Day/itinerary.html">Itinerary page</a>
+          <a class="resource-link" href="https://skabone.github.io/Boat-Day/itinerary.pdf">Printable PDF</a>
+        </div>
+        <div class="soft-note" style="margin-top:18px;">QR-style callouts are included in the PDF so the link still works when the plan gets shared as a screenshot or printed page.</div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="section-inner">
+    <span>Anchors Aweigh for Drs. Hana &amp; Ruth</span>
+    <span><a href="index.html">Map</a> · <a href="itinerary.pdf">PDF</a> · Captain Mintay</span>
+  </div>
+</footer>
+
+<script>
+  const copyButton = document.getElementById("copy-button");
+  const copyStatus = document.getElementById("copy-status");
+  const groupCopy = document.getElementById("group-copy");
+
+  copyButton.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(groupCopy.value);
+      copyStatus.textContent = "Copied. The group chat is ready.";
+    } catch (error) {
+      groupCopy.focus();
+      groupCopy.select();
+      copyStatus.textContent = "Select the text and copy manually.";
+    }
+  });
+</script>
+</body>
+</html>

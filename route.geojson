@@ -76,14 +76,14 @@
       },
       "properties": {
         "id": "steview-meet-up",
-        "name": "Steview meet-up - 2:30pm to 3:30pm",
+        "name": "Stevie lake-window - 2:30pm to 3:30pm",
         "color": "Purple",
         "stroke": "#8e44ad",
         "stroke-width": 4,
         "stroke-opacity": 0.95,
-        "mode": "Dock/near-dock overlap, then boat",
+        "mode": "Dock/near-dock overlap, then water-side cameo",
         "time": "2:30pm-3:30pm",
-        "description": "Meeting window with Steview. Because the schedule has you walking back to the dock at 2:55-3:00pm, the 2:30-3:00 portion is treated as dock/near-dock overlap, and 3:00-3:30 as a short Lake Washington boat segment."
+        "description": "Stevie may make a quick lake-window cameo around Leschi. Keep phones handy, keep it flexible, and watch the water without over-explaining the surprise."
       }
     },
     {

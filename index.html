@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Boating Day - May 28, 2026</title>
+<title>Anchors Aweigh - Boat Day Map</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -130,6 +130,58 @@
     font-weight: 700;
     letter-spacing: 0.4px;
     text-transform: uppercase;
+  }
+  .site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .site-nav a {
+    min-height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 11px;
+    border: 1px solid rgba(70, 188, 236, 0.22);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-decoration: none;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .site-nav a:hover,
+  .site-nav a.active {
+    border-color: rgba(70, 188, 236, 0.58);
+    background: rgba(70, 188, 236, 0.13);
+  }
+  .quick-card {
+    margin-top: 14px;
+    padding: 12px;
+    border: 1px solid rgba(70, 188, 236, 0.16);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.055);
+  }
+  .quick-card strong {
+    display: block;
+    color: #fff;
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: 15px;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .quick-card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.45;
+  }
+  .quick-card a {
+    color: #8bd7f5;
+    font-weight: 800;
+    text-decoration: none;
   }
 
   .legend {
@@ -258,6 +310,49 @@
     font-size: 13px;
     line-height: 1.45;
   }
+  .wake-easter {
+    position: relative;
+    width: 42px;
+    height: 24px;
+    opacity: 0.76;
+    filter: drop-shadow(0 3px 6px rgba(8, 20, 35, 0.38));
+  }
+  .wake-easter::before {
+    content: "";
+    position: absolute;
+    top: 7px;
+    right: 3px;
+    width: 18px;
+    height: 9px;
+    border-radius: 8px 3px 8px 3px;
+    background: #f8fafc;
+    transform: skewX(-18deg) rotate(-7deg);
+  }
+  .wake-easter::after,
+  .wake-easter span::before,
+  .wake-easter span::after {
+    content: "";
+    position: absolute;
+    left: 2px;
+    height: 2px;
+    border-radius: 999px;
+    background: rgba(248, 250, 252, 0.9);
+  }
+  .wake-easter::after {
+    top: 7px;
+    width: 20px;
+    transform: rotate(-11deg);
+  }
+  .wake-easter span::before {
+    top: 13px;
+    width: 26px;
+    transform: rotate(-4deg);
+  }
+  .wake-easter span::after {
+    top: 18px;
+    width: 15px;
+    transform: rotate(8deg);
+  }
 
   @media (max-width: 820px) {
     #map { inset: 0 320px 0 0; }
@@ -279,6 +374,7 @@
     }
     .panel-header h1 { font-size: 24px; }
     .tl-title { font-size: 15px; }
+    .site-nav a { flex: 1 1 calc(50% - 8px); }
   }
 </style>
 </head>
@@ -287,13 +383,24 @@
 
 <aside class="timeline-panel" id="timeline" aria-label="Boating day itinerary">
   <div class="panel-header">
-    <h1>Boating Day</h1>
+    <h1>Anchors Aweigh</h1>
     <div class="date">Thursday, May 28, 2026</div>
+    <nav class="site-nav" aria-label="Boat day pages">
+      <a href="index.html" class="active">Map</a>
+      <a href="itinerary.html">Itinerary</a>
+      <a href="itinerary.html#packing">Packing</a>
+      <a href="itinerary.html#weather">Weather</a>
+      <a href="itinerary.pdf">PDF</a>
+    </nav>
+    <div class="quick-card">
+      <strong>Lake Washington sendoff</strong>
+      <p>For Drs. Hana &amp; Ruth, captained by Mintay. Sunny and warm, with a hoodie-friendly ride home. <a href="itinerary.html">Open the full itinerary</a>.</p>
+    </div>
     <div class="legend" aria-label="Route legend">
       <div class="legend-item"><div class="legend-swatch" style="background:#0066cc"></div>Outbound</div>
       <div class="legend-item"><div class="legend-swatch" style="background:#ff9900"></div>Walk</div>
       <div class="legend-item"><div class="legend-swatch" style="background:#2e8b57"></div>Cruise</div>
-      <div class="legend-item"><div class="legend-swatch" style="background:#8e44ad"></div>Steview</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#8e44ad"></div>Ripple</div>
       <div class="legend-item"><div class="legend-swatch" style="background:#cc0000"></div>Return</div>
     </div>
   </div>
@@ -310,8 +417,8 @@
       featureId: "fishermens-terminal",
       className: "outbound",
       time: "10:45 AM",
-      title: "I depart Fishermen's Terminal",
-      desc: "Casting off and heading east through Salmon Bay toward the Fremont Cut.",
+      title: "Depart Fishermen's Terminal",
+      desc: "Casting off from Ballard and heading east through Salmon Bay toward the Fremont Cut.",
       tag: "Depart",
       tagClass: "tag-blue",
       zoom: 15
@@ -332,8 +439,8 @@
       featureId: "leschi-dock",
       className: "outbound",
       time: "1:45 PM",
-      title: "I dock at BluWater Bistro",
-      desc: "Tying up at the Leschi dock. Boat stays here while I walk to my meeting.",
+      title: "Dock at BluWater Bistro",
+      desc: "Tying up at the Leschi dock. Quick land stop and meet-up window happen from here.",
       tag: "Dock",
       tagClass: "tag-blue",
       zoom: 16
@@ -343,7 +450,7 @@
       featureId: "walking-land-stop",
       className: "walk",
       time: "1:50 - 1:55 PM",
-      title: "I walk to Starbucks",
+      title: "Walk to Starbucks",
       desc: "Quick walk across Lakeside Ave from the BluWater dock.",
       tag: "Walk",
       tagClass: "tag-walk",
@@ -354,8 +461,8 @@
       featureId: "starbucks",
       className: "stop",
       time: "2:00 - 2:55 PM",
-      title: "My meeting at Starbucks",
-      desc: "About 1 hour meeting. Boat is waiting at the BluWater dock.",
+      title: "Starbucks meeting window",
+      desc: "About 1 hour meeting. The boat stays coordinated near the BluWater dock.",
       tag: "Meeting",
       tagClass: "tag-stop",
       zoom: 18
@@ -365,9 +472,9 @@
       featureId: "steview-meet-up",
       className: "meet",
       time: "2:30 - 3:30 PM",
-      title: "Steview meet-up",
-      desc: "Dock or near-dock overlap at first, then a short Lake Washington boat segment once I am back aboard.",
-      tag: "Meet-up",
+      title: "Stevie's lake-window",
+      desc: "A quick water-side cameo may happen around Leschi. Keep phones handy and one eye on the wake.",
+      tag: "Ripple",
       tagClass: "tag-meet",
       focus: "bounds"
     },
@@ -376,7 +483,7 @@
       featureId: "walking-land-stop",
       className: "walk",
       time: "2:55 - 3:00 PM",
-      title: "I walk back to the dock",
+      title: "Walk back to the dock",
       desc: "Quick walk back across the street to the boat.",
       tag: "Walk",
       tagClass: "tag-walk",
@@ -387,7 +494,7 @@
       featureId: "mercer-lake-loop",
       className: "chill",
       time: "3:30 - 7:00 PM",
-      title: "Cruise around Mercer Island",
+      title: "Lake Washington celebration hangout",
       desc: "Looping around Mercer Island, then open-water cruising on Lake Washington.",
       tag: "Cruise",
       tagClass: "tag-chill",
@@ -398,7 +505,7 @@
       featureId: "lake-center",
       className: "ret",
       time: "7:30 PM",
-      title: "We point home from mid-lake",
+      title: "Point home from mid-lake",
       desc: "From near the center of Lake Washington, we start the inbound run back to Ballard.",
       tag: "Inbound",
       tagClass: "tag-red",
@@ -420,7 +527,7 @@
       featureId: "fishermens-terminal",
       className: "ret",
       time: "8:30 PM",
-      title: "I arrive Fishermen's Terminal",
+      title: "Return to Fishermen's Terminal",
       desc: "Docked back in Ballard.",
       tag: "Home",
       tagClass: "tag-red",
@@ -614,6 +721,18 @@
     document.body.appendChild(error);
   }
 
+  function addWakeCameo() {
+    const wakeIcon = L.divIcon({
+      html: '<div class="wake-easter" aria-hidden="true"><span></span></div>',
+      className: "",
+      iconSize: [42, 24],
+      iconAnchor: [21, 12]
+    });
+    L.marker([47.6063, -122.2564], { icon: wakeIcon, zIndexOffset: 450 })
+      .addTo(map)
+      .bindPopup("<strong>A little lake ripple</strong><div class=\"popup-desc\">No spoilers. Just keep an eye on the water during the Leschi window.</div>");
+  }
+
   async function init() {
     renderTimeline();
 
@@ -625,6 +744,7 @@
       const bounds = L.featureGroup(layers).getBounds();
       const walkLayer = routeLayers.get("walking-land-stop");
       if (walkLayer) walkLayer.bringToFront();
+      addWakeCameo();
       if (bounds.isValid()) map.fitBounds(bounds, { padding: [42, 42] });
     } catch (error) {
       console.error(error);
