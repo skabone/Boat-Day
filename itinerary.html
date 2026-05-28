@@ -15,6 +15,8 @@
     --sun: #f7c85c;
     --coral: #ef7c68;
     --green: #2e8b57;
+    --purple: #8e44ad;
+    --purple-soft: #a855c7;
     --paper: #fff9ef;
     --muted: #64748b;
     --line: rgba(16, 32, 51, 0.12);
@@ -146,6 +148,7 @@
   }
   .hero-actions {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 22px;
@@ -166,6 +169,57 @@
     border: 1px solid rgba(255, 255, 255, 0.48);
     background: rgba(7, 22, 37, 0.32);
     color: #fff;
+  }
+  .wake-symbol {
+    position: relative;
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 56px;
+    height: 30px;
+    opacity: 0.96;
+    vertical-align: middle;
+    filter: drop-shadow(0 6px 10px rgba(82, 28, 106, 0.34));
+  }
+  .wake-symbol::before {
+    content: "";
+    position: absolute;
+    right: 3px;
+    top: 9px;
+    width: 20px;
+    height: 10px;
+    border-radius: 9px 3px 9px 3px;
+    background: var(--purple);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.72);
+    transform: skewX(-18deg) rotate(-7deg);
+  }
+  .wake-symbol::after,
+  .wake-symbol span::before,
+  .wake-symbol span::after {
+    content: "";
+    position: absolute;
+    left: 2px;
+    height: 3px;
+    border-radius: 999px;
+    background: rgba(168, 85, 199, 0.96);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6);
+  }
+  .wake-symbol::after {
+    top: 9px;
+    width: 24px;
+    transform: rotate(-11deg);
+  }
+  .wake-symbol span::before {
+    top: 16px;
+    width: 32px;
+    transform: rotate(-4deg);
+  }
+  .wake-symbol span::after {
+    top: 23px;
+    width: 18px;
+    transform: rotate(8deg);
+  }
+  .hero-wake {
+    margin-left: 4px;
   }
   .hero-strip {
     display: grid;
@@ -256,6 +310,42 @@
     color: var(--deep);
     font-size: 25px;
     line-height: 1.08;
+  }
+  .linkup-card h3 {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .linkup-card .wake-symbol,
+  .linkup-row .wake-symbol {
+    width: 46px;
+    height: 24px;
+  }
+  .linkup-card .wake-symbol::before,
+  .linkup-row .wake-symbol::before {
+    top: 7px;
+    width: 17px;
+    height: 9px;
+  }
+  .linkup-card .wake-symbol::after,
+  .linkup-row .wake-symbol::after {
+    top: 7px;
+    width: 20px;
+  }
+  .linkup-card .wake-symbol span::before,
+  .linkup-row .wake-symbol span::before {
+    top: 13px;
+    width: 27px;
+  }
+  .linkup-card .wake-symbol span::after,
+  .linkup-row .wake-symbol span::after {
+    top: 19px;
+    width: 15px;
+  }
+  .time-wake {
+    display: block;
+    margin-top: 8px;
   }
   .deep .card h3 { color: #fff; }
   .card p {
@@ -470,7 +560,7 @@
     width: 38px;
     height: 17px;
     border-radius: 14px 5px 14px 5px;
-    background: #8e44ad;
+    background: var(--purple);
     box-shadow: 0 0 0 3px rgba(255,255,255,0.24);
     transform: skewX(-18deg);
   }
@@ -482,7 +572,7 @@
     width: 58px;
     height: 4px;
     border-radius: 999px;
-    background: #a855c7;
+    background: var(--purple-soft);
     box-shadow: 10px 13px 0 rgba(168,85,199,0.95), -2px 26px 0 rgba(168,85,199,0.95);
   }
 
@@ -556,6 +646,7 @@
       <a href="index.html">Open Live Route Map</a>
       <a class="secondary" href="#group-text">Copy Group Text</a>
       <a class="secondary" href="itinerary.pdf">Open PDF</a>
+      <span class="wake-symbol hero-wake" aria-hidden="true"><span></span></span>
     </div>
     <div class="hero-strip" aria-label="People and timing">
       <div class="mini-stat"><span>Boating Captain</span><strong>Mintay</strong></div>
@@ -594,8 +685,8 @@
         <h3>Toast Moment</h3>
         <p>Before the big lake hangout, pause near Leschi for a quick toast: one favorite memory, one future wish, and one official "doctor behavior" compliment.</p>
       </article>
-      <article class="card">
-        <h3>Possible Link-Up</h3>
+      <article class="card linkup-card">
+        <h3>Possible Link-Up <span class="wake-symbol" aria-hidden="true"><span></span></span></h3>
         <p>Possible link-up with Mintay's friend near Leschi. Keep phones handy and stay reachable.</p>
       </article>
     </div>
@@ -627,8 +718,8 @@
           <div class="time">1:50 - 3:00 PM</div>
           <div><h3>Starbucks walk and meeting window</h3><p>Quick walk across Lakeside Ave for the meeting, then back to the dock. This is the only land segment.</p></div>
         </article>
-        <article class="time-row">
-          <div class="time">2:30 - 3:30 PM</div>
+        <article class="time-row linkup-row">
+          <div class="time">2:30 - 3:30 PM <span class="wake-symbol time-wake" aria-hidden="true"><span></span></span></div>
           <div><h3>Possible link-up with Mintay's friend</h3><p>Possible link-up near Leschi. Keep phones handy.</p></div>
         </article>
         <article class="time-row">

@@ -191,6 +191,7 @@ def draw_cover(c):
     c.setFillColor(colors.Color(0.02, 0.08, 0.14, alpha=0.66))
     c.rect(0, 0, W, H, fill=1, stroke=0)
     c.restoreState()
+    draw_wake(c, 88, 505, 0.36, 0.9)
 
     x = M
     y = H - 86
@@ -273,6 +274,8 @@ def draw_itinerary_page(c):
         c.setFillColor(BLUE)
         c.setFont("Helvetica-Bold", 9.5)
         c.drawString(M + 14, y - 15, time)
+        if title == "Possible link-up with Mintay's friend":
+            draw_wake(c, M + 18, y - 44, 0.42, 0.82)
         c.setFillColor(INK)
         c.setFont("Helvetica-Bold", 12.3)
         c.drawString(M + 132, y - 12, title)
